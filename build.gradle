@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+version = '1.0.8'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "info.ganglia.jmxetric:jmxetric:1.0.8"
+}
+
+task prepareDistLibraries(type: Copy) {
+    into "$buildDir/dist/lib"
+    from configurations.runtime
+}
+
+task dist(type: Tar) {
+    into ("lib") {
+        from configurations.runtime
+    }
+    into ("conf") {
+        from "$projectDir/conf"
+    }
+    baseName = 'storm-jmxetric'
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+}

@@ -1,5 +1,5 @@
-To build a tarball use ant target `dist`:
+To build a tarball use gradle task `dist`:
 
 ```
-ant clean dist
+gradle clean dist
 ```

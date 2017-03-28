@@ -1,8 +1,0 @@
-<ivy-module version="2.0">
-    <info organisation="com.wandisco" module="storm-jmxetric"/>
-    <dependencies>
-        <dependency org="info.ganglia.jmxetric" name="jmxetric" rev="1.0.8"/>
-        <exclude type="sources" ext="jar" conf="default"/>
-        <exclude type="javadoc" ext="jar" conf="default"/>
-    </dependencies>
-</ivy-module>
