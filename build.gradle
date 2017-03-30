@@ -22,6 +22,11 @@ task prepareDistLibraries(type: Copy) {
 task dist(type: Tar) {
     into ("lib") {
         from configurations.runtime
+        rename { filename ->
+            def parts = filename.split('-')
+            def newFilename = parts.take(parts.length - 1).join('-') + '.jar'
+            return newFilename
+        }
     }
     into ("conf") {
         from "$projectDir/conf"
